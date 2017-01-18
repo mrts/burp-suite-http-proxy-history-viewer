@@ -1,0 +1,28 @@
+# EditorConfig is awesome: http://EditorConfig.org
+# Works out of the box with IntelliJ,
+# please install EditorConfig Eclipse plugin from Eclipse Marketplace.
+
+# top-most EditorConfig file
+root = true
+
+# Default:
+#   Unix-style newlines with a newline ending every file
+#   Trim trailing whitespace
+#   4 space indentation with spaces
+#   Set default charset to UTF-8
+[*]
+end_of_line = lf
+insert_final_newline = true
+trim_trailing_whitespace = true
+charset = utf-8
+indent_style = space
+indent_size = 4
+
+[*.{css,scss,js}]
+indent_size = 2
+
+[*.xml]
+indent_size = 2
+
+[.gitlab-ci.yml]
+indent_size = 2

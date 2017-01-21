@@ -2,6 +2,7 @@
 
 *.java 	text eol=lf
 *.xml 	text eol=lf
+*.fxml 	text eol=lf
 *.pl 	text eol=lf
 *.py 	text eol=lf
 

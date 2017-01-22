@@ -3,6 +3,8 @@ package com.github.mrts.burpsuitehistoryviewer.model;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 
+import java.util.Base64;
+
 public class HttpLogItemViewModel {
 
     private final StringProperty time;
@@ -29,12 +31,17 @@ public class HttpLogItemViewModel {
         this.method = new SimpleStringProperty(logItem.getMethod());
         this.path = new SimpleStringProperty(logItem.getPath());
         this.extension = new SimpleStringProperty(logItem.getExtension());
-        this.request = new SimpleStringProperty(logItem.getRequest());
+        this.request = new SimpleStringProperty(base64Decode(logItem.getRequest()));
         this.status = new SimpleStringProperty(logItem.getStatus());
         this.responseLength = new SimpleStringProperty(logItem.getResponselength());
         this.mimeType = new SimpleStringProperty(logItem.getMimetype());
-        this.response = new SimpleStringProperty(logItem.getResponse());
+        this.response = new SimpleStringProperty(base64Decode(logItem.getResponse()));
         this.comment = new SimpleStringProperty(logItem.getComment());
+    }
+
+    private String base64Decode(String base64) {
+        final byte[] decoded = Base64.getDecoder().decode(base64);
+        return new String(decoded);
     }
 
     public String getTime() {
